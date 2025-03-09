@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from './sidebar'
+import Sidebar from './Sidebar'
 import Home from './Home'
 import Footer from './Footer'
 

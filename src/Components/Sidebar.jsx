@@ -20,17 +20,17 @@ export default function Sidebar() {
   ];
   const Socials = [
     {
-      id: 1,
+      id: 5,
       link: "LinkedIn.svg",
       Navlink: "https://www.linkedin.com/in/muhammadali-dev5",
     },
     {
-      id: 2,
+      id: 6,
       link: "Github.svg",
       Navlink: "https://github.com/mali14655",
     },
     {
-      id: 2,
+      id: 7,
       link: "Github.svg",
       Navlink: "https://github.com/mali14655",
     },
@@ -38,8 +38,8 @@ export default function Sidebar() {
   return (
     <>
       <div
-        className="w-[64px] rounded-[80px] bg-black backdrop-blur-2xl shadow-[0px_6px_9px_0px_rgba(0, 0, 0, 0.6), 0px_3px_2px_0px_rgba(0, 0, 0, 0.12), 0px_1px_1px_0px_rgba(0, 0, 0, 0.04)]
-      flex flex-col items-center py-1"
+        className="w-[64px] overflow-hidden rounded-[80px] bg-[#0000001A] border-[1px] border-[#2e3035] backdrop-blur-2xl shadow-[0px_6px_9px_0px_rgba(0, 0, 0, 0.6), 0px_3px_2px_0px_rgba(0, 0, 0, 0.12), 0px_1px_1px_0px_rgba(0, 0, 0, 0.04)]
+      flex flex-col items-center py-1 fixed left-5 top-5 z-50 "
       >
         <div className="absolute inset-0 rounded-[80px] bg-[linear-gradient(to_bottom,rgba(255,255,255,1),rgba(255,255,255,0))]  opacity-20"></div>
         <div className="w-full flex flex-col items-center ">

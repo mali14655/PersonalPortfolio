@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import Skills from "../../Skills";
 
 export default function Home() {
   const Projects = [
@@ -78,6 +79,7 @@ export default function Home() {
             />
           </div>
         </div>
+        <Skills/>
         <div className="w-full p-5 flex flex-col justify-between gap-10">
           <h1 className="font-semibold text-[48px] text-white">Projects</h1>
           <div className="flex overflow-x-auto space-x-10 custom-scrollbar px-5 py-5">

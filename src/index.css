@@ -24,4 +24,25 @@
   }
  
   
+  .slide-content {
+    background: #f4f4f4;
+    padding: 50px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 10px;
+    color: black;
+  }
   
+  .swiper {
+    width: 100%;
+    height: auto;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #000; /* Navigation arrows color */
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #000; /* Active dot color */
+  }

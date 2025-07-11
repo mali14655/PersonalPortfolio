@@ -1,48 +1,76 @@
 @import "tailwindcss";
-/* Width of the scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
+/* Custom Scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Track (background) */
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: #5c5f69; /* Applying the color to the track */
-    border-radius: 10px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Handle (scroll thumb) */
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    border: 3px solid transparent; /* Space around the thumb */
-    background-clip: content-box;
-    background: #3F424D; /* Applying the color to the thumb */
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  /* Handle on hover */
-  .custom-scrollbar ::-webkit-scrollbar-thumb:hover {
-    background: #5A5D6A; /* A lighter shade for hover effect */
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
- 
-  
-  .slide-content {
-    background: #f4f4f4;
-    padding: 50px;
-    text-align: center;
-    font-size: 20px;
-    border-radius: 10px;
-    color: black;
-  }
-  
-  .swiper {
-    width: 100%;
-    height: auto;
-  }
-  
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: #000; /* Navigation arrows color */
-  }
-  
-  .swiper-pagination-bullet-active {
-    background-color: #000; /* Active dot color */
-  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in 0.8s ease-out 0.2s both;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out 0.1s both;
+}
+
+.animate-slide-up-delay {
+  animation: slide-up 0.8s ease-out 0.4s both;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Focus Styles */
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(46, 48, 53, 1);
+}
+
+/* Custom Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

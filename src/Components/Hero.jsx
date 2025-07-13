@@ -73,7 +73,7 @@ export default function Hero() {
                 <Button Text="Hire Me" />
               </a>
 
-              <a href="/cv.pdf" download="Muhammad_Ali_CV.pdf">
+              <a href="/MuhammadAliResume.pdf" download="Muhammad_Ali_Resume.pdf">
                 <Button Text="Download CV" />
               </a>
             </div>

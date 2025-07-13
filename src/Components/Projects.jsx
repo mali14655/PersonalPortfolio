@@ -58,7 +58,7 @@ export default function Projects() {
 
         {/* Projects Horizontal Scroll */}
         <div className="relative">
-          <div className="flex overflow-x-auto scrollbar-hide space-x-6 pb-6">
+          <div className="flex overflow-x-auto scrollbar-hide space-x-6 pb-6  py-5">
             {projects.map((project, index) => (
               <div
                 key={project.id}

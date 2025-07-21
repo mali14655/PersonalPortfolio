@@ -101,13 +101,13 @@ export default function Contact() {
                       muhammadali.dev5@gmail.com
                     </p>
                   </div>
-                  <Copy
+                  {/* <Copy
                     className="w-5 h-5 text-gray-400 hover:text-white transition-colors"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleCopy("muhammadali.dev5@gmail.com");
                     }}
-                  />
+                  /> */}
                 </div>
 
                 {/* WhatsApp */}
@@ -124,13 +124,13 @@ export default function Contact() {
                       0325 0328377
                     </p>
                   </div>
-                  <Copy
+                  {/* <Copy
                     className="w-5 h-5 text-gray-400 hover:text-white transition-colors"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleCopy("03250328377");
                     }}
-                  />
+                  /> */}
                 </div>
                 {/* LinkedIn */}
                 <div
@@ -152,7 +152,7 @@ export default function Contact() {
                       /muhammadali-dev5
                     </p>
                   </div>
-                  <Copy
+                  {/* <Copy
                     className="w-5 h-5 text-gray-400 hover:text-white transition-colors"
                     onClick={(e) => {
                       e.stopPropagation();
@@ -160,7 +160,7 @@ export default function Contact() {
                         "https://www.linkedin.com/in/muhammadali-dev5"
                       );
                     }}
-                  />
+                  /> */}
                 </div>
 
                 {/* GitHub */}
@@ -187,13 +187,13 @@ export default function Contact() {
                       /mali14655
                     </p>
                   </div>
-                  <Copy
+                  {/* <Copy
                     className="w-5 h-5 text-gray-400 hover:text-white transition-colors"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleCopy("https://github.com/mali14655");
                     }}
-                  />
+                  /> */}
                 </div>
               </div>
 

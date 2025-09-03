@@ -81,7 +81,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-[#0000001A] backdrop-blur-xl border border-[#2e3035] rounded-3xl p-8 shadow-2xl">
+            <div className="bg-[#0000001A] backdrop-blur-xl border border-[#2e3035] rounded-3xl py-8 px-4 shadow-2xl">
               <h3 className="text-2xl font-bold text-white mb-6">
                 Let's Connect
               </h3>
@@ -97,7 +97,7 @@ export default function Contact() {
                   </div>
                   <div className="flex-1">
                     <p className="text-[#BFC2CB] text-sm">Email</p>
-                    <p className="text-white hover:text-blue-300 transition-colors font-medium">
+                    <p className="text-white hover:text-blue-300 transition-colors text-sm sm:font-medium ">
                       muhammadali.dev5@gmail.com
                     </p>
                   </div>

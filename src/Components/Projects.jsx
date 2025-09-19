@@ -3,6 +3,19 @@ import { Github, ExternalLink, Code, Globe } from "lucide-react";
 
 export default function Projects() {
   const projects = [
+   {
+  id: 1,
+  title: "NE Consultants Platform",
+  link: "https://nec-xi.vercel.app/",
+  // github: "", // Leave empty or remove if it's a private repo
+  description:
+    "An educational consultancy website where users can explore detailed information about the company and book consultations via Calendly. All dynamic content, including services, updates, and offerings, is managed through a secure admin panel using Supabase for authentication and data management.",
+  coverLink: "onlinetutoria.jpeg", // Add this image to your assets
+  icon: "IconButton2.svg",
+  technologies: ["React", "Tailwind CSS", "Supabase"],
+  category: "Client Project",
+},
+
     {
       id: 6,
       title: "OnlineTutoria Platform",

@@ -64,7 +64,7 @@ export default function Skills() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { number: '6+', label: 'Months Experience' },
+            { number: '1.5+', label: 'years Experience' },
             { number: '5+', label: 'Projects Completed' },
             { number: '100%', label: 'Client Satisfaction' },
             { number: '24/7', label: 'Support Available' }

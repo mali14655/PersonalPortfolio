@@ -6,12 +6,12 @@ export default function Skills() {
   const categories = [
     {
       title: 'Frontend',
-      skills: ['JavaScript (ES6+)', 'React', 'HTML/CSS', 'Tailwind CSS'],
+      skills: ['JavaScript (ES6+)',"TypeScript", 'React', 'HTML/CSS', 'Tailwind CSS'],
       icon: '🎨'
     },
     {
       title: 'Backend',
-      skills: ['Node.js', 'Express', 'MongoDB', 'REST APIs'],
+      skills: ['Node.js', 'Express', 'MongoDB', 'REST APIs',"Supabase","Firebase"],
       icon: '⚙️'
     },
     {

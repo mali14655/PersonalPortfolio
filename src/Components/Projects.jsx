@@ -6,7 +6,7 @@ export default function Projects() {
    {
   id: 1,
   title: "NE Consultants Platform",
-  link: "https://nec-xi.vercel.app/",
+  link: "https://ne-consultants.org/",
   // github: "", // Leave empty or remove if it's a private repo
   description:
     "An educational consultancy website where users can explore detailed information about the company and book consultations via Calendly. All dynamic content, including services, updates, and offerings, is managed through a secure admin panel using Supabase for authentication and data management.",

@@ -4,10 +4,12 @@ import Hero from "./Components/Hero";
 import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
 import Reviews from "./Components/Reviews";
+import ReviewsAdmin from "./Components/ReviewsAdmin";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 
 function App() {
+  const isReviewsAdminRoute = window.location.pathname === "/reviews-admin";
   const [activeSection, setActiveSection] = useState("home");
 
   // Smooth scroll to section
@@ -45,6 +47,10 @@ function App() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (isReviewsAdminRoute) {
+    return <ReviewsAdmin />;
+  }
 
   return (
     <div className="min-h-screen bg-[#15161A] text-[#BFC2CB] font-sans">

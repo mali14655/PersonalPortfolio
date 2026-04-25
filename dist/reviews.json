@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Fahad Shah",
+    "role": "Business Owner",
+    "company": "FS Smartphones, Germany",
+    "review": "Muhammad Ali delivered our website exactly as needed. The design is clean, professional, and optimized for customer trust and product sales.",
+    "rating": 5,
+    "createdAt": "2026-04-25T12:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "Niaz Ali Khan",
+    "role": "CEO",
+    "company": "NE Consultants",
+    "review": "Excellent communication and strong technical execution. He built a modern platform for our consultancy and handled all requirements with professionalism.",
+    "rating": 5,
+    "createdAt": "2026-04-25T12:10:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Mr. Mazhar Ur Rehman",
+    "role": "Founder",
+    "company": "OnlineTutoria",
+    "review": "Good MERN skills and reliable delivery. The platform structure and admin features made it easier for us to manage content and students.",
+    "rating": 5,
+    "createdAt": "2026-04-25T12:20:00.000Z"
+  }
+]

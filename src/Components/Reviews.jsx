@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Star, Send, X } from "lucide-react";
+import { addReview, loadInitialReviews } from "../utils/reviewsStore";
 
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
@@ -16,9 +17,8 @@ export default function Reviews() {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch("/api/reviews");
-      const data = await response.json();
-      setReviews(Array.isArray(data) ? data : []);
+      const data = await loadInitialReviews();
+      setReviews(data);
     } catch (error) {
       console.error("Failed to fetch reviews:", error);
     } finally {
@@ -41,18 +41,8 @@ export default function Reviews() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/reviews", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit review");
-      }
-
-      const createdReview = await response.json();
-      setReviews((prev) => [createdReview, ...prev]);
+      const { all } = addReview(formData);
+      setReviews(all);
       setFormData({
         name: "",
         role: "",

@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const reviewsFilePath = path.resolve(__dirname, "data", "reviews.json");
+const publicReviewsFilePath = path.resolve(__dirname, "public", "reviews.json");
 
 function reviewsApiPlugin() {
   return {
@@ -56,6 +57,11 @@ function reviewsApiPlugin() {
                 const updatedReviews = [newReview, ...existingReviews];
                 await fs.writeFile(
                   reviewsFilePath,
+                  JSON.stringify(updatedReviews, null, 2),
+                  "utf-8"
+                );
+                await fs.writeFile(
+                  publicReviewsFilePath,
                   JSON.stringify(updatedReviews, null, 2),
                   "utf-8"
                 );

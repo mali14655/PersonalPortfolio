@@ -1,11 +1,12 @@
 import React from 'react';
-import { Home, Code, Briefcase, Mail, Github, Linkedin } from 'lucide-react';
+import { Home, Code, Briefcase, Mail, MessageSquare, Github, Linkedin } from 'lucide-react';
 
 export default function Sidebar({ activeSection, onSectionChange }) {
   const menuItems = [
     { id: 'home', icon: Home },
     { id: 'skills', icon: Code },
     { id: 'projects', icon: Briefcase },
+    { id: 'reviews', icon: MessageSquare },
     { id: 'contact', icon: Mail },
   ];
 

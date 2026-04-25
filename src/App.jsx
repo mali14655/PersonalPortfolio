@@ -3,6 +3,7 @@ import Sidebar from "./Components/Sidebar";
 import Hero from "./Components/Hero";
 import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
+import Reviews from "./Components/Reviews";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 
@@ -21,7 +22,7 @@ function App() {
   // Handle scroll to update active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "skills", "projects", "contact"];
+      const sections = ["home", "skills", "projects", "reviews", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -63,6 +64,7 @@ function App() {
         <Hero />
         <Skills />
         <Projects />
+        <Reviews />
         <Contact />
         <Footer />
       </main>

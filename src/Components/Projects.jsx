@@ -1,60 +1,112 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Github, ExternalLink, Code, Globe } from "lucide-react";
 
 export default function Projects() {
-  const projects = [
-   {
-  id: 1,
-  title: "NE Consultants Platform",
-  link: "https://ne-consultants.org/",
-  // github: "", // Leave empty or remove if it's a private repo
-  description:
-    "An educational consultancy website where users can explore detailed information about the company and book consultations via Calendly. All dynamic content, including services, updates, and offerings, is managed through a secure admin panel using Supabase for authentication and data management.",
-  coverLink: "onlinetutoria.jpeg", // Add this image to your assets
-  icon: "IconButton2.svg",
-  technologies: ["React", "Tailwind CSS", "Supabase"],
-  category: "Client Project",
-},
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef(null);
 
+  const projects = [
+    {
+      id: 1,
+      title: "NE Consultants Platform",
+      link: "https://ne-consultants.org/",
+      description:
+        "A polished education consultancy website for UK admissions and visa guidance. It highlights services, success metrics, and consultation booking, with dynamic content managed through a secure Supabase-powered admin workflow.",
+      coverLink: "onlinetutoria.jpeg",
+      icon: "IconButton2.svg",
+      technologies: [
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Supabase",
+      ],
+      category: "Client Project",
+    },
+    {
+      id: 8,
+      title: "FS Smartphones E-commerce Website",
+      link: "https://fundssmartphones.de/",
+      description:
+        "A German refurbished smartphone business website focused on trust and conversion. It presents product listings, warranty and return guarantees, FAQs, and customer reviews in a clean, mobile-friendly storefront experience.",
+      coverLink: "trafficlens.jpeg",
+      icon: "IconButton2.svg",
+      technologies: [
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Responsive UI",
+      ],
+      category: "Client Project",
+    },
     {
       id: 6,
       title: "OnlineTutoria Platform",
       link: "https://onlinetutoria.com",
-      // github: "", // Leave empty or remove if it's a private repo
       description:
-        "A full-featured MERN stack educational platform with a powerful admin dashboard. Admins can manage courses, study plans, and content, while users can browse offerings, select plans, and enroll seamlessly.",
-      coverLink: "onlinetutoria.jpeg", // Add this image to your assets
+        "An online tutoring platform built for live, expert-led learning. Students can explore courses, choose flexible pricing plans, and join interactive sessions, while administrators manage tutor content and offerings through a scalable MERN architecture.",
+      coverLink: "onlinetutoria.jpeg",
       icon: "IconButton2.svg",
       technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
       category: "Client Project",
     },
-    {
-  id: 7,
-  title: "TrafficLens Tracker Tool",
-  link: "https://frontend-of-trafficlens.vercel.app",
-  github: "https://github.com/mali14655/FrontendOfTrafficlens.git", // Private or internal use
-  description:
-    "A MERN stack-based link redirection and visitor tracking tool. TrafficLens allows users to create custom redirect URLs while capturing visitor IPs, countries, and cities, and displays powerful analytics through an admin dashboard.",
-  coverLink: "trafficlens.jpeg", // Add this image to your assets
-  icon: "IconButton.svg",
-  technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-  category: "Self"
-}
-,
     {
       id: 4,
       title: "Portfolio Website",
       link: "https://muhammadali-portfolio.vercel.app/",
       github: "https://github.com/mali14655/PersonalPortfolio.git",
       description:
-        "Modern, responsive portfolio website showcasing projects and skills with smooth animations and glassmorphism design.",
+        "A modern portfolio built to present my development work, technical stack, and contact channels. It combines responsive layouts, smooth animations, and a clean visual style to provide a strong professional first impression.",
       coverLink: "portfolio.jpeg",
       icon: "IconButton.svg",
-      technologies: ["React", "Tailwind CSS", "Framer Motion",],
+      technologies: ["React", "Tailwind CSS", "Framer Motion"],
       category: "Portfolio",
     },
-    
   ];
+
+  useEffect(() => {
+    const scroller = scrollRef.current;
+    if (!scroller) return;
+
+    const onScroll = () => {
+      const cards = Array.from(scroller.querySelectorAll("[data-project-card]"));
+      if (!cards.length) return;
+
+      const targetLeft = scroller.scrollLeft;
+      let closestIndex = 0;
+      let closestDistance = Math.abs(cards[0].offsetLeft - targetLeft);
+
+      cards.forEach((card, index) => {
+        const distance = Math.abs(card.offsetLeft - targetLeft);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => scroller.removeEventListener("scroll", onScroll);
+  }, [projects.length]);
+
+  const handleDotClick = (index) => {
+    const scroller = scrollRef.current;
+    if (!scroller) return;
+
+    const cards = Array.from(scroller.querySelectorAll("[data-project-card]"));
+    const targetCard = cards[index];
+    if (!targetCard) return;
+
+    scroller.scrollTo({ left: targetCard.offsetLeft, behavior: "smooth" });
+    setActiveIndex(index);
+  };
 
   return (
     <section id="projects" className="py-20 px-4 md:px-8 lg:px-16 lg:ml-20">
@@ -67,15 +119,25 @@ export default function Projects() {
           <p className="text-xl text-[#BFC2CB] max-w-3xl mx-auto">
             A showcase of my recent work and personal projects
           </p>
+          <p className="md:hidden mt-4 text-sm text-blue-300/90">
+            Swipe left to view more projects
+          </p>
         </div>
 
         {/* Projects Horizontal Scroll */}
         <div className="relative">
-          <div className="flex overflow-x-auto scrollbar-hide space-x-6 pb-6  py-5">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#15161A] to-transparent z-10 md:hidden" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#15161A] to-transparent z-10 md:hidden" />
+
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto scrollbar-hide space-x-4 md:space-x-6 pb-6 py-5 snap-x snap-mandatory pr-6"
+          >
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className="flex-shrink-0 w-80 md:w-96 bg-[#0000001A] backdrop-blur-xl border border-[#2e3035] rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] transition-all duration-500 group hover:-translate-y-2"
+                data-project-card
+                className="snap-start flex-shrink-0 w-[85vw] sm:w-80 md:w-96 bg-[#0000001A] backdrop-blur-xl border border-[#2e3035] rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] transition-all duration-500 group hover:-translate-y-2"
               >
                 {/* Project Image/Cover */}
                 <div className="relative h-48 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-blue-500/20 overflow-hidden">
@@ -96,14 +158,16 @@ export default function Projects() {
                     >
                       <ExternalLink className="w-5 h-5 text-white" />
                     </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-gray-700 hover:bg-gray-600 rounded-full transition-colors duration-200"
-                    >
-                      <Github className="w-5 h-5 text-white" />
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-gray-700 hover:bg-gray-600 rounded-full transition-colors duration-200"
+                      >
+                        <Github className="w-5 h-5 text-white" />
+                      </a>
+                    )}
                   </div>
 
                   {/* Category Badge */}
@@ -147,15 +211,17 @@ export default function Projects() {
                       <Globe className="w-4 h-4" />
                       <span>Live Demo</span>
                     </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center space-x-2 py-2 px-4 bg-gray-500/20 text-gray-300 rounded-full text-sm border border-gray-500/30 hover:bg-gray-500/30 hover:scale-105 transition-all duration-200"
-                    >
-                      <Code className="w-4 h-4" />
-                      <span>Source</span>
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center space-x-2 py-2 px-4 bg-gray-500/20 text-gray-300 rounded-full text-sm border border-gray-500/30 hover:bg-gray-500/30 hover:scale-105 transition-all duration-200"
+                      >
+                        <Code className="w-4 h-4" />
+                        <span>Source</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -165,10 +231,16 @@ export default function Projects() {
           {/* Scroll Indicators */}
           <div className="flex justify-center mt-8 space-x-2">
             {projects.map((_, index) => (
-              <div
+              <button
                 key={index}
-                className="w-2 h-2 bg-white/20 rounded-full hover:bg-blue-400 transition-colors duration-200 cursor-pointer"
-              ></div>
+                onClick={() => handleDotClick(index)}
+                aria-label={`Go to project ${index + 1}`}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-200 cursor-pointer ${
+                  activeIndex === index
+                    ? "bg-blue-400 scale-110"
+                    : "bg-white/20 hover:bg-blue-300"
+                }`}
+              />
             ))}
           </div>
         </div>

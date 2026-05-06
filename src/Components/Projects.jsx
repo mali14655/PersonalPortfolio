@@ -7,6 +7,23 @@ export default function Projects() {
 
   const projects = [
     {
+      id: 9,
+      title: "Emerging Edge",
+      link: "https://emergingedge.tech/",
+      description:
+        "A software agency platform presenting end-to-end digital services including web, mobile, UI/UX, SaaS, and consulting. The site emphasizes clear delivery workflows, business-first execution, and scalable product development.",
+      coverLink: "onlinetutoria.jpeg",
+      icon: "IconButton2.svg",
+      technologies: [
+        "Web Development",
+        "Mobile Development",
+        "UI/UX Design",
+        "SaaS Solutions",
+        "Digital Strategy",
+      ],
+      category: "Client Project",
+    },
+    {
       id: 1,
       title: "NE Consultants Platform",
       link: "https://ne-consultants.org/",
